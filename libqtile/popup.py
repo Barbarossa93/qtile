@@ -40,6 +40,7 @@ class Popup(configurable.Configurable):
         ('fontshadow', None, 'Colour for text shadows, or None for no shadows.'),
         ('horizontal_padding', 0, 'Padding at sides of text.'),
         ('vertical_padding', 0, 'Padding at top and bottom of text.'),
+        ('margin', None, 'Space around window as int or list of ints [N E S W]'),
         ('text_alignment', 'left', 'Text alignment: left, center or right.'),
         ('wrap', True, 'Whether to wrap text.'),
     ]
@@ -146,7 +147,7 @@ class Popup(configurable.Configurable):
     def place(self):
         self.win.place(
             self.x, self.y, self.width, self.height,
-            self.border_width, self.border, above=True
+            self.border_width, self.border, above=True, margin=self.margin
         )
 
     def unhide(self):
